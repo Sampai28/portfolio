@@ -76,6 +76,3 @@ Open to collaborating on projects in **machine learning**, **cybersecurity**, an
 - **GitHub**: [Sampai28](https://github.com/Sampai28)
 
 ---
-
-© 2025 Sameer Saxena  
-Built with passion & code.  
