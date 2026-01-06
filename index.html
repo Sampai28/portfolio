@@ -545,10 +545,10 @@
             transform: scale(1.05);
         }
 
-        /* Projects Section */
+        /* Projects Section - Simplified */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 2rem;
             max-width: 1200px;
             margin: 0 auto;
@@ -563,8 +563,6 @@
             display: flex;
             flex-direction: column;
             height: 100%;
-            cursor: pointer;
-            position: relative;
         }
 
         .project-card:hover {
@@ -578,7 +576,7 @@
             padding: 2rem;
             position: relative;
             overflow: hidden;
-            min-height: 120px;
+            min-height: 100px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -596,88 +594,31 @@
             font-weight: 600;
         }
 
-        .project-header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: rgba(255, 255, 255, 0.1);
-            transform: rotate(45deg);
-            animation: shimmer 3s infinite;
-        }
-
-        @keyframes shimmer {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-        }
-
         .project-icon {
             font-size: 3rem;
             color: white;
         }
 
         .project-body {
-            padding: 2rem;
+            padding: 1.5rem;
             flex: 1;
             display: flex;
             flex-direction: column;
-            position: relative;
         }
 
         .project-title {
             font-size: 1.25rem;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
             font-weight: 600;
+            line-height: 1.3;
         }
 
         .project-summary {
-            color: var(--text-light);
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-        }
-
-        .project-details {
-            max-height: 0;
-            overflow: hidden;
-            opacity: 0;
-            transition: all 0.5s ease;
-            margin-bottom: 0;
-        }
-
-        .project-card:hover .project-details {
-            max-height: 400px;
-            opacity: 1;
+            color: var(--text-dim);
             margin-bottom: 1.5rem;
-        }
-
-        .project-description {
-            color: var(--text-dim);
+            font-size: 0.95rem;
             line-height: 1.6;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-        }
-
-        .project-highlights {
-            list-style: none;
-            padding: 0;
-        }
-
-        .project-highlights li {
-            color: var(--text-dim);
-            margin-bottom: 0.5rem;
-            padding-left: 1.5rem;
-            position: relative;
-            font-size: 0.85rem;
-            line-height: 1.4;
-        }
-
-        .project-highlights li::before {
-            content: '▸';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
+            flex: 1;
         }
 
         .project-links {
@@ -708,11 +649,10 @@
 
         .project-link.disabled {
             opacity: 0.7;
-            cursor: default;
-            pointer-events: none;
-            background: rgba(0, 255, 204, 0.1);
-            color: var(--accent);
-            border-color: var(--accent);
+            cursor: not-allowed;
+            background: rgba(161, 161, 170, 0.1);
+            color: var(--text-dim);
+            border-color: var(--text-dim);
         }
 
         .project-tech {
@@ -725,27 +665,10 @@
         .tech-tag {
             background: rgba(0, 255, 204, 0.1);
             color: var(--accent);
-            padding: 0.3rem 0.8rem;
+            padding: 0.4rem 0.9rem;
             border-radius: 15px;
             font-size: 0.8rem;
             white-space: nowrap;
-        }
-
-        /* Hover hint for projects */
-        .project-card::after {
-            content: 'Hover for details';
-            position: absolute;
-            bottom: 0.5rem;
-            right: 1rem;
-            font-size: 0.7rem;
-            color: var(--text-dim);
-            opacity: 0.5;
-            font-style: italic;
-            transition: opacity 0.3s ease;
-        }
-
-        .project-card:hover::after {
-            opacity: 0;
         }
 
         @media (min-width: 768px) {
@@ -754,13 +677,15 @@
             }
         }
 
+        @media (min-width: 1200px) {
+            .projects-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
         @media (max-width: 768px) {
             .projects-grid {
                 grid-template-columns: 1fr;
-            }
-            
-            .project-card::after {
-                content: 'Tap for details';
             }
         }
 
@@ -1055,12 +980,12 @@
                 <h3><i class="fas fa-shield-alt"></i> Security & DevOps</h3>
                 <div class="skill-tags">
                     <span class="skill-tag">Splunk Cloud</span>
-                    <span class="skill-tag">Splunk Security Orchestration, Automation, and Response (SOAR)</span>
-                    <span class="skill-tag">ServiceNow Security Incident Response</span>
-                    <span class="skill-tag">ServiceNow Vulnerability Response</span>
+                    <span class="skill-tag">Splunk SOAR</span>
+                    <span class="skill-tag">ServiceNow SIR</span>
+                    <span class="skill-tag">ServiceNow VR</span>
                     <span class="skill-tag">ServiceNow Flow Designer</span>
-                    <span class="skill-tag">Microsoft Azure DevOps</span>
-                    <span class="skill-tag">Microsoft Power Platform</span>
+                    <span class="skill-tag">Azure DevOps</span>
+                    <span class="skill-tag">Power Platform</span>
                 </div>
             </div>
         </div>
@@ -1071,105 +996,6 @@
         <h2 class="section-title">Research & Projects</h2>
         
         <div class="projects-grid">
-            <!-- CRSAS GitHub Project -->
-            <div class="project-card">
-                <div class="project-header">
-                    <div class="project-icon">
-                        <i class="fas fa-trophy"></i>
-                    </div>
-                    <span class="featured-badge">MakeHarvard 2021</span>
-                </div>
-                <div class="project-body">
-                    <h3 class="project-title">CRSAS - Customer Review Sentiment Analysis System</h3>
-                    <p class="project-summary">Award-winning sentiment analysis and visualization platform</p>
-                    <div class="project-details">
-                        <p class="project-description">Secured Top 3 Maker's Choice Award at MakeHarvard 2021. Developed a sentiment analysis system for customer reviews and built a Streamlit web app for intuitive visualization of insights.</p>
-                        <ul class="project-highlights">
-                            <li>Implemented sentiment analysis using NLP techniques</li>
-                            <li>Built Streamlit dashboard for real-time review insights</li>
-                            <li>Processed and analyzed large-scale customer feedback</li>
-                            <li>Recognized among hundreds of global participants</li>
-                        </ul>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/harsh-singh-rathore/CRSAS" target="_blank" class="project-link">
-                            <i class="fab fa-github"></i> View on GitHub
-                        </a>
-                    </div>
-                    <div class="project-tech">
-                        <span class="tech-tag">Natural Language Understanding</span>
-                        <span class="tech-tag">Streamlit</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- XCI Sketch Project -->
-            <div class="project-card">
-                <div class="project-header">
-                    <div class="project-icon">
-                        <i class="fas fa-image"></i>
-                    </div>
-                    <span class="featured-badge">NeurIPS</span>
-                </div>
-                <div class="project-body">
-                    <h3 class="project-title">XCI-Sketch</h3>
-                    <p class="project-summary">Web application for image processing and user studies</p>
-                    <div class="project-details">
-                        <p class="project-description">Worked on image processing algorithms and designed a Streamlit-based web application to conduct a perceptual user study, analyzing how sketches are interpreted and evaluated by participants.</p>
-                        <ul class="project-highlights">
-                            <li>Implemented advanced image processing techniques</li>
-                            <li>Developed Streamlit application for perceptual user study</li>
-                            <li>Designed experiments to evaluate sketch interpretations</li>
-                            <li>Facilitated real-world user participation and feedback</li>
-                        </ul>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/Sampai28/XCI-Sketch" target="_blank" class="project-link">
-                            <i class="fab fa-github"></i> View on GitHub
-                        </a>
-                    </div>
-                    <div class="project-tech">
-                        <span class="tech-tag">Image Processing</span>
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Streamlit</span>
-                    </div>
-                </div>
-            </div>
-            <!-- Kissan Mitra (Farmer's Friend)-->
-            <div class="project-card">
-                <div class="project-header">
-                    <div class="project-icon">
-                        <i class="fas fa-seedling"></i>
-                    </div>
-                    <span class="featured-badge">AI for Social Impact</span>
-                </div>
-                <div class="project-body">
-                    <h3 class="project-title">Kissan Mitra (Farmer's Friend)</h3>
-                    <p class="project-summary">Voice-enabled AI agricultural advisory system for Indian farmers</p>
-                    <div class="project-details">
-                        <p class="project-description">Developed a multilingual voice AI assistant to bridge information gaps for 86% of India's farming community. Built serverless architecture supporting Hindi, Tamil, Telugu, Bengali, and Marathi with real-time agricultural data integration.</p>
-                        <ul class="project-highlights">
-                            <li>Implemented OpenAI Voice Agents with AWS Lambda serverless architecture</li>
-                            <li>Built knowledge graph combining vector databases with IMD weather and AGMARKNET pricing APIs</li>
-                            <li>Created ETL pipelines for real-time irrigation, pest management, and crop pricing decisions</li>
-                            <li>Designed multilingual NLP pipeline supporting 5 regional Indian languages</li>
-                        </ul>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" target="_blank" class="project-link">
-                            <i class="fab fa-github"></i> View on GitHub
-                        </a>
-                    </div>
-                    <div class="project-tech">
-                        <span class="tech-tag">AWS Lambda</span>
-                        <span class="tech-tag">OpenAI Voice API</span>
-                        <span class="tech-tag">Knowledge Graphs</span>
-                        <span class="tech-tag">DynamoDB</span>
-                        <span class="tech-tag">NLP</span>
-                        <span class="tech-tag">Vector Databases</span>
-                    </div>
-                </div>
-            </div>
             <!-- Dynamic Twitter Friend Grouping Research -->
             <div class="project-card">
                 <div class="project-header">
@@ -1180,16 +1006,7 @@
                 </div>
                 <div class="project-body">
                     <h3 class="project-title">Dynamic Twitter Friend Grouping Using Clustering Techniques</h3>
-                    <p class="project-summary">Published research on social network analysis and user clustering algorithms</p>
-                    <div class="project-details">
-                        <p class="project-description">Collaborated with Dr. Nisha P. Shetty and co-authors on research analyzing dynamic friend grouping patterns in Twitter networks. Published in IET Communications journal, implementing and comparing seven clustering algorithms to identify optimal user grouping strategies.</p>
-                        <ul class="project-highlights">
-                            <li>Implemented 7 clustering algorithms: KMeans, BIRCH, DBSCAN, Spectral, Fuzzy C-Means, Rep-C, and Gaussian Mixture Models</li>
-                            <li>Validated clusters using multiple metrics: Silhouette Score, Davies-Bouldin Index, Calinski-Harabasz Index, Cohesion, and Separation</li>
-                            <li>Built models with synthetic data and verified performance on real-world datasets (Ciao and FilmTrust)</li>
-                            <li>Published peer-reviewed research in IET Communications (Wiley)</li>
-                        </ul>
-                    </div>
+                    <p class="project-summary">Research on social network analysis and user clustering algorithms published in IET Communications</p>
                     <div class="project-links">
                         <a href="https://ietresearch.onlinelibrary.wiley.com/doi/10.1049/cmu2.12807" target="_blank" class="project-link">
                             <i class="fas fa-file-alt"></i> Read Publication
@@ -1197,11 +1014,136 @@
                     </div>
                     <div class="project-tech">
                         <span class="tech-tag">Machine Learning</span>
-                        <span class="tech-tag">Clustering Algorithms</span>
-                        <span class="tech-tag">Social Network Analysis</span>
+                        <span class="tech-tag">Clustering</span>
                         <span class="tech-tag">Python</span>
                         <span class="tech-tag">Scikit-learn</span>
-                        <span class="tech-tag">Statistical Validation</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- XCI Sketch Project -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <span class="featured-badge">NeurIPS 2021</span>
+                </div>
+                <div class="project-body">
+                    <h3 class="project-title">XCI-Sketch</h3>
+                    <p class="project-summary">Generative sketching system using conditional GANs for image-to-sketch translation with perceptual user study</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Sampai28/XCI-Sketch" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">GANs</span>
+                        <span class="tech-tag">Computer Vision</span>
+                        <span class="tech-tag">OpenCV</span>
+                        <span class="tech-tag">PyTorch</span>
+                        <span class="tech-tag">Streamlit</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kissan Mitra -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <span class="featured-badge">AI for Social Impact</span>
+                </div>
+                <div class="project-body">
+                    <h3 class="project-title">Kissan Mitra (Farmer's Friend)</h3>
+                    <p class="project-summary">Voice-enabled AI agricultural advisory system supporting 5 Indian languages with real-time weather and pricing data</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Sampai28/Kissan-Mitra" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">AWS Lambda</span>
+                        <span class="tech-tag">OpenAI Voice API</span>
+                        <span class="tech-tag">Knowledge Graphs</span>
+                        <span class="tech-tag">DynamoDB</span>
+                        <span class="tech-tag">NLP</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CRSAS -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <span class="featured-badge">MakeHarvard 2021</span>
+                </div>
+                <div class="project-body">
+                    <h3 class="project-title">CRSAS - Customer Review Sentiment Analysis System</h3>
+                    <p class="project-summary">Sentiment analysis platform with Streamlit dashboard for visualizing customer review insights</p>
+                    <div class="project-links">
+                        <a href="https://github.com/harsh-singh-rathore/CRSAS" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">NLP</span>
+                        <span class="tech-tag">Sentiment Analysis</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Streamlit</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LendScape -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <span class="featured-badge">FinTech</span>
+                </div>
+                <div class="project-body">
+                    <h3 class="project-title">LendScape</h3>
+                    <p class="project-summary">Peer-to-peer lending platform with credit risk assessment and loan recommendation system</p>
+                    <div class="project-links">
+                        <a href="https://github.com/YoungZ2357/LendScape" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Machine Learning</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Flask</span>
+                        <span class="tech-tag">Scikit-learn</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Graph Explorer -->
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <span class="featured-badge">Graph Analytics</span>
+                </div>
+                <div class="project-body">
+                    <h3 class="project-title">Course Graph Explorer</h3>
+                    <p class="project-summary">Interactive visualization tool for exploring course dependencies and academic pathways using graph algorithms</p>
+                    <div class="project-links">
+                        <a href="https://github.com/Sampai28/Course-graph-explorer" target="_blank" class="project-link">
+                            <i class="fab fa-github"></i> View on GitHub
+                        </a>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Graph Analytics</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">NetworkX</span>
+                        <span class="tech-tag">Visualization</span>
                     </div>
                 </div>
             </div>
@@ -1263,7 +1205,7 @@
         <div class="contact-content">
             <p>I'm always interested in collaborating on projects related to machine learning, data, cybersecurity, and automation. Feel free to reach out!</p>
             <div class="contact-links">
-                <a href="sameersaxena2810@gmail.com" class="contact-link">
+                <a href="mailto:sameersaxena2810@gmail.com" class="contact-link">
                     <i class="fas fa-envelope contact-icon"></i>
                     <span>Email</span>
                 </a>
