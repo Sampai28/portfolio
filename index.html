@@ -334,22 +334,41 @@
             background: var(--accent);
         }
 
-        /* ---- Projects ---- */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        /* ---- Projects Marquee ---- */
+        .marquee-wrapper {
+            overflow: hidden;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            padding: 1rem 0;
+            mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+        }
+        .marquee-track {
+            display: flex;
             gap: 1.5rem;
+            width: max-content;
+            animation: marquee 45s linear infinite;
+        }
+        .marquee-wrapper:hover .marquee-track {
+            animation-play-state: paused;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
         .project-card {
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: 12px;
-            padding: 2rem;
+            padding: 1.8rem;
             transition: all 0.4s;
             position: relative;
             overflow: hidden;
             display: flex;
             flex-direction: column;
+            width: 360px;
+            min-width: 360px;
+            flex-shrink: 0;
         }
         .project-card::before {
             content: '';
@@ -436,11 +455,21 @@
             border: 1px solid var(--border);
             color: var(--text-muted);
             transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+        }
+        .skill-pill i {
+            font-size: 1.05rem;
+            opacity: 0.85;
         }
         .skill-pill:hover {
             border-color: var(--accent);
             color: var(--text);
             background: var(--accent-glow);
+        }
+        .skill-pill:hover i {
+            opacity: 1;
         }
 
         /* ---- Education ---- */
@@ -672,9 +701,10 @@
     <section id="projects">
         <p class="section-label fade-up">// Work</p>
         <h2 class="section-title fade-up">Featured Projects</h2>
-        <div class="projects-grid">
+        <div class="marquee-wrapper">
+        <div class="marquee-track">
             <!-- Smart DevOps Ticket Assignment -->
-            <div class="project-card fade-up">
+            <div class="project-card">
                 <div class="project-icon project-icon--purple">
                     <svg width="24" height="24" fill="none" stroke="#6c63ff" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M9 9h6M9 13h4"/></svg>
                 </div>
@@ -692,7 +722,7 @@
             </div>
 
             <!-- Sketch Generation -->
-            <div class="project-card fade-up">
+            <div class="project-card">
                 <div class="project-icon project-icon--pink">
                     <svg width="24" height="24" fill="none" stroke="#ff6b9d" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
                 </div>
@@ -708,7 +738,7 @@
             </div>
 
             <!-- Voice AI for Farmers -->
-            <div class="project-card fade-up">
+            <div class="project-card">
                 <div class="project-icon project-icon--green">
                     <svg width="24" height="24" fill="none" stroke="#00d4aa" stroke-width="2" viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
                 </div>
@@ -724,7 +754,7 @@
             </div>
 
             <!-- Agentic AV Scenario Generator -->
-            <div class="project-card fade-up">
+            <div class="project-card">
                 <div class="project-icon project-icon--blue">
                     <svg width="24" height="24" fill="none" stroke="#3b82f6" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="2"/><polygon points="23 7 16 12 16 2 23 7"/></svg>
                 </div>
@@ -740,7 +770,7 @@
             </div>
 
             <!-- Real-Time Pose Estimation -->
-            <div class="project-card fade-up">
+            <div class="project-card">
                 <div class="project-icon project-icon--orange">
                     <svg width="24" height="24" fill="none" stroke="#fb923c" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="5" r="3"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="12" y1="16" x2="8" y2="22"/><line x1="12" y1="16" x2="16" y2="22"/></svg>
                 </div>
@@ -755,7 +785,7 @@
             </div>
 
             <!-- Multimodal Infant Cry Detection -->
-            <div class="project-card fade-up">
+            <div class="project-card">
                 <div class="project-icon project-icon--cyan">
                     <svg width="24" height="24" fill="none" stroke="#22d3ee" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
                 </div>
@@ -770,7 +800,7 @@
             </div>
 
             <!-- AI-Powered Documentation Verification -->
-            <div class="project-card fade-up">
+            <div class="project-card">
                 <div class="project-icon project-icon--purple">
                     <svg width="24" height="24" fill="none" stroke="#6c63ff" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
                 </div>
@@ -785,7 +815,7 @@
             </div>
 
             <!-- LendScape -->
-            <div class="project-card fade-up">
+            <div class="project-card">
                 <div class="project-icon project-icon--green">
                     <svg width="24" height="24" fill="none" stroke="#00d4aa" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
                 </div>
@@ -799,7 +829,8 @@
                 </div>
                 <a href="https://github.com/YoungZ2357/LendScape" class="project-link" target="_blank" rel="noopener">View on GitHub &rarr;</a>
             </div>
-        </div>
+        </div><!-- .marquee-track -->
+        </div><!-- .marquee-wrapper -->
     </section>
 
     <!-- Skills -->
@@ -810,61 +841,61 @@
             <div class="skill-category fade-up">
                 <h3><span class="cat-dot" style="background: var(--accent)"></span> Programming</h3>
                 <div class="skill-pills">
-                    <span class="skill-pill">C++</span>
-                    <span class="skill-pill">Python</span>
-                    <span class="skill-pill">SQL</span>
-                    <span class="skill-pill">Bash</span>
-                    <span class="skill-pill">TypeScript</span>
+                    <span class="skill-pill"><i class="devicon-cplusplus-plain"></i> C++</span>
+                    <span class="skill-pill"><i class="devicon-python-plain"></i> Python</span>
+                    <span class="skill-pill"><i class="devicon-azuresqldatabase-plain"></i> SQL</span>
+                    <span class="skill-pill"><i class="devicon-bash-plain"></i> Bash</span>
+                    <span class="skill-pill"><i class="devicon-typescript-plain"></i> TypeScript</span>
                 </div>
             </div>
             <div class="skill-category fade-up">
                 <h3><span class="cat-dot" style="background: var(--accent2)"></span> ML & Deep Learning</h3>
                 <div class="skill-pills">
-                    <span class="skill-pill">PyTorch</span>
-                    <span class="skill-pill">Scikit-Learn</span>
-                    <span class="skill-pill">LLMs</span>
-                    <span class="skill-pill">LangChain</span>
-                    <span class="skill-pill">LangGraph</span>
-                    <span class="skill-pill">Pandas</span>
-                    <span class="skill-pill">NumPy</span>
-                    <span class="skill-pill">Matplotlib</span>
+                    <span class="skill-pill"><i class="devicon-pytorch-original"></i> PyTorch</span>
+                    <span class="skill-pill"><i class="devicon-scikitlearn-plain"></i> Scikit-Learn</span>
+                    <span class="skill-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="opacity:0.85"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg> LLMs</span>
+                    <span class="skill-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.85"><circle cx="6" cy="12" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><line x1="9" y1="12" x2="15" y2="7"/><line x1="9" y1="12" x2="15" y2="17"/></svg> LangChain</span>
+                    <span class="skill-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.85"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/><line x1="12" y1="22" x2="12" y2="15.5"/><polyline points="22 8.5 12 15.5 2 8.5"/></svg> LangGraph</span>
+                    <span class="skill-pill"><i class="devicon-pandas-plain"></i> Pandas</span>
+                    <span class="skill-pill"><i class="devicon-numpy-plain"></i> NumPy</span>
+                    <span class="skill-pill"><i class="devicon-matplotlib-plain"></i> Matplotlib</span>
                 </div>
             </div>
             <div class="skill-category fade-up">
                 <h3><span class="cat-dot" style="background: var(--accent3)"></span> Data Engineering</h3>
                 <div class="skill-pills">
-                    <span class="skill-pill">ETL/ELT Pipelines</span>
-                    <span class="skill-pill">Apache Airflow</span>
-                    <span class="skill-pill">Data Pipelines</span>
-                    <span class="skill-pill">PostgreSQL</span>
+                    <span class="skill-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.85"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg> ETL/ELT Pipelines</span>
+                    <span class="skill-pill"><i class="devicon-apacheairflow-plain"></i> Apache Airflow</span>
+                    <span class="skill-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.85"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg> Data Pipelines</span>
+                    <span class="skill-pill"><i class="devicon-postgresql-plain"></i> PostgreSQL</span>
                 </div>
             </div>
             <div class="skill-category fade-up">
                 <h3><span class="cat-dot" style="background: #3b82f6"></span> Visualization</h3>
                 <div class="skill-pills">
-                    <span class="skill-pill">Power BI</span>
-                    <span class="skill-pill">Looker (Google Data Studio)</span>
+                    <span class="skill-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="opacity:0.85"><rect x="3" y="12" width="4" height="9" rx="1"/><rect x="10" y="6" width="4" height="15" rx="1"/><rect x="17" y="2" width="4" height="19" rx="1"/></svg> Power BI</span>
+                    <span class="skill-pill"><i class="devicon-google-plain"></i> Looker</span>
                 </div>
             </div>
             <div class="skill-category fade-up">
                 <h3><span class="cat-dot" style="background: #fb923c"></span> Infrastructure</h3>
                 <div class="skill-pills">
-                    <span class="skill-pill">Docker</span>
-                    <span class="skill-pill">Terraform</span>
-                    <span class="skill-pill">CI/CD</span>
-                    <span class="skill-pill">Linux</span>
-                    <span class="skill-pill">Git</span>
+                    <span class="skill-pill"><i class="devicon-docker-plain"></i> Docker</span>
+                    <span class="skill-pill"><i class="devicon-terraform-plain"></i> Terraform</span>
+                    <span class="skill-pill"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="opacity:0.85"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg> CI/CD</span>
+                    <span class="skill-pill"><i class="devicon-linux-plain"></i> Linux</span>
+                    <span class="skill-pill"><i class="devicon-git-plain"></i> Git</span>
                 </div>
             </div>
             <div class="skill-category fade-up">
                 <h3><span class="cat-dot" style="background: #22d3ee"></span> Cloud</h3>
                 <div class="skill-pills">
-                    <span class="skill-pill">AWS S3</span>
-                    <span class="skill-pill">AWS Lambda</span>
-                    <span class="skill-pill">AWS Glue</span>
-                    <span class="skill-pill">AWS Lex</span>
-                    <span class="skill-pill">CloudWatch</span>
-                    <span class="skill-pill">GCP Cloud Run</span>
+                    <span class="skill-pill"><i class="devicon-amazonwebservices-plain-wordmark"></i> AWS S3</span>
+                    <span class="skill-pill"><i class="devicon-amazonwebservices-plain-wordmark"></i> Lambda</span>
+                    <span class="skill-pill"><i class="devicon-amazonwebservices-plain-wordmark"></i> Glue</span>
+                    <span class="skill-pill"><i class="devicon-amazonwebservices-plain-wordmark"></i> Lex</span>
+                    <span class="skill-pill"><i class="devicon-amazonwebservices-plain-wordmark"></i> CloudWatch</span>
+                    <span class="skill-pill"><i class="devicon-googlecloud-plain"></i> GCP Cloud Run</span>
                 </div>
             </div>
         </div>
@@ -998,6 +1029,17 @@
         // Nav shadow on scroll
         const nav = document.querySelector('nav');
         window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50));
+
+        // Duplicate marquee cards for seamless infinite loop
+        const track = document.querySelector('.marquee-track');
+        if (track) {
+            const cards = Array.from(track.children);
+            cards.forEach(card => {
+                const clone = card.cloneNode(true);
+                clone.setAttribute('aria-hidden', 'true');
+                track.appendChild(clone);
+            });
+        }
 
         // Intersection Observer for fade-up animations
         const observer = new IntersectionObserver((entries) => {
