@@ -1,78 +1,101 @@
 # Sameer Saxena
 
-**Engineer & Data Enthusiast | Turning Data into Decisions, Automation into Impact**
+**Data Scientist & Engineer | Turning Data into Decisions, Automation into Impact**
 
 ---
 
 ## About Me
 
-With a Computer Science background from Manipal Institute of Technology, I've journeyed from being an undergraduate research assistant to a Data Engineering intern, and most recently, a part of Shell’s Cyber Defence team. I’ve gained hands-on experience across **Machine Learning**, **Computer Vision**, **Data Pipelining**, and **Security**. I love exploring new ideas—whether in research or competing in cybersecurity tournaments like Boss of the SOC—because technology's greatest appeal to me is how it challenges me to learn, collaborate, and make an impact.
+With a Computer Science background from Manipal Institute of Technology and currently pursuing an M.S. in Data Science at Northeastern University (4.0 GPA), I've built experience across **Machine Learning**, **Data Engineering**, **Computer Vision**, and **Security**. From publishing at NeurIPS and IET Communications, to building MLOps pipelines and voice-enabled AI systems, I enjoy turning complex problems into practical, impactful solutions.
 
 ---
 
 ## Featured Projects
 
-### CRSAS - Customer Review Sentiment Analysis System  
-**MakeHarvard 2021 — Top 3 Maker’s Choice**  
-Built a sentiment analysis platform and Streamlit dashboard for real-time visualization of customer reviews.  
-- NLP-driven sentiment models  
-- Interactive Streamlit frontend  
-- Processed & analyzed large-scale feedback  
-- Awarded among hundreds of global entries  
-[ View on GitHub ]()
+### Smart DevOps Ticket Assignment System
+End-to-end MLOps pipeline that classifies tickets into complexity buckets using sentence embeddings, automates engineer-ticket matching, and ingests new joiners' resumes for skill-appropriate assignment.
+- MLflow, Airflow, DVC, FastAPI, Docker, PostgreSQL
+- [View on GitHub](https://github.com/ALearningCurve/ticket-forge)
 
-### XCI-Sketch  
-**NeurIPS Workshop**  
-Worked on image processing techniques and delivered a Streamlit app for perceptual user studies around sketch interpretation.  
-- Advanced image processing pipelines  
-- Streamlit-powered study application  
-- Designed evaluation experiments  
-- Hosted live user testing  
-[ View on GitHub ]()
+### Sketch Generation from Images
+Image-to-colored-sketch generation pipeline using OpenCV for color extraction and a conditional GAN for sketch synthesis; accepted at 4 NeurIPS 2021 workshops.
+- Python, PyTorch, GANs, OpenCV
+- [View on GitHub](https://github.com/Sampai28/XCI-Sketch)
+
+### Voice-Enabled AI Assistant for Farmers
+Voice-enabled AI advisory system using multilingual NLP (5+ languages, ~86% of India's farming community), knowledge retrieval, and workflow orchestration for real-time weather, pricing, and crop advisory.
+- TypeScript, Twilio, DynamoDB, Knowledge Graphs
+- [View on GitHub](https://github.com/Kissan-Mitra/Kissan-Mitra)
+
+### Agentic AV Scenario Generator
+Multi-tool LangChain agent that converts natural language driving descriptions into Pydantic-validated AV simulation configs across 64 environment combinations with CARLA export.
+- Python, LangChain, Pydantic v2, CARLA, Groq
+- [View on GitHub](https://github.com/Sampai28/scenariogen)
+
+### Real-Time Pose Estimation & Motion Analysis
+Real-time motion analysis pipeline that tracks skeletal landmarks from video, computes joint angles, and evaluates movement symmetry for sports biomechanics.
+- Python, OpenCV, MediaPipe
+- [View on GitHub](https://github.com/Sampai28/RePose-Real-Time-Pose-Estimation-Motion-Analysis-System)
+
+### Multimodal Infant Cry Detection System
+Audio classification system combining spectral and temporal features (MFCCs, spectrograms) with deep learning to detect infant cries in noisy real-world environments.
+- Python, PyTorch, Librosa
+- [View on GitHub](https://github.com/Sampai28/Multimodal-Infant-Cry-Detection-System)
+
+### AI-Powered Documentation Verification
+Embedding-based comparison and knowledge retrieval pipeline using transformer models for scalable code-document analysis, identifying semantic mismatches across 1000+ lines of code per run.
+- FastAPI, Sentence Transformers, GitPython
+- [View on GitHub](https://github.com/niloy-saha-123/veritas)
+
+### LendScape
+Full-stack peer-to-peer lending platform with JWT authentication, Supabase backend, and interactive Leaflet.js map visualizations displaying lending patterns across geographic regions.
+- Python, PostgreSQL, Supabase, Leaflet.js
+- [View on GitHub](https://github.com/YoungZ2357/LendScape)
 
 ---
 
 ## Professional Experience
 
-- **Systems Engineer** @ *Shell* (Aug 2023 – Aug 2025)  
-  Automation, Splunk monitoring, ServiceNow workflow enhancements, and a start in competitive Splunk via Boss of the SOC.
+- **Systems Engineer** @ *Shell* (Aug 2023 -- Aug 2025)
+  Built Power BI dashboards integrating SAP Ariba and ServiceNow data, automated license renewal workflows via Power Platform reducing turnaround from weeks to 2-3 days, and analyzed large-scale log data for incident resolution on ServiceNow and Splunk.
 
-- **Data Engineering Intern** @ *BackPac Technologies* (Jan 2023 – Jul 2023)  
-  Developed dashboards, ran significance testing, built data pipelines via Airflow, and collaborated directly with clients to enhance UX.
+- **Data Science Intern** @ *BackPac* (Jan 2023 -- Aug 2023)
+  Built ETL pipelines with Python and Airflow, performed statistical analysis on workforce data (1000+ employees, 12 departments), and developed interactive dashboards with Power BI and Looker for HR leadership.
 
-- **Undergraduate Research Assistant**, Manipal Institute of Technology (Aug 2021 – Dec 2022)  
-  Co-authored IET Communications paper first-clustering dynamic friend groups with validation using Silhouette, DB Index, Calinski-Harabasz, and real-world datasets (Ciao, FilmTrust).
+- **Research Assistant** @ *Manipal Institute of Technology* (Aug 2021 -- Dec 2022)
+  Implemented and evaluated 7 clustering algorithms for social network analysis, validated on real-world datasets, and published findings in IET Communications.
 
-- **Core Team Member**, Cryptonite CTF Team (Jan 2020 – Jun 2022)  
-  Specialized in memory forensics, led forensic challenge creation, participated in NITE CTF, and drove team to Top 100 global rank on CTFtime.
+---
+
+## Education
+
+- **M.S. in Data Science** (Concentration: Computer Science) -- Northeastern University, Boston (GPA: 4.0/4.0, Expected May 2027)
+- **B.Tech in Computer Science** (Minor: Big Data) -- Manipal Institute of Technology (GPA: 3.8/4.0, Jul 2023)
 
 ---
 
 ## Technical Skills
 
-| Languages           | Data & ML                                           | Security & DevOps                                               |
-|--------------------|----------------------------------------------------|-----------------------------------------------------------------|
-| Python, SQL, C++, JavaScript, TypeScript, Bash | Power BI, Looker Studio, TensorFlow, PyTorch, Image Processing, Airflow, Hypothesis Testing | Splunk Cloud, SOAR, ServiceNow SIR & Vulnerability Response, Azure DevOps, Microsoft Power Platform |
+C++ | Python | SQL | Bash | TypeScript | PyTorch | Scikit-Learn | LLMs | LangChain | LangGraph | Pandas | NumPy | Matplotlib | Apache Airflow | PostgreSQL | Power BI | Looker | Docker | Terraform | Linux | Git | Amazon Web Services | Google Cloud Platform
 
 ---
 
 ## Achievements
 
-- **7th Place** – Boss of the SOC (Shell’s Splunk tournament among India–Netherlands teams)  
-- **2nd Place** – Code Innovation Series Hackathon (GitHub India & Department of ICT)  
-- **Top 3** – MakeHarvard 2021 Maker's Choice  
-- **2 Research Publications** – IET Communications & NeurIPS Workshops  
-- **Top 100 CTF Team** – Cryptonite ranking on CTFtime  
-- **Academic Excellence** – CGPA 8.99/10.0 with Big Data minor
+- **Published** at NeurIPS 2021 & IET Communications
+- **Runner-up** -- GitHub Code Innovation Hackathon
+- **7th Place** -- Splunk Boss of the SOC (BOTS) Global Tournament
+- **Top 3** -- Maker's Choice Awards, MakeHarvard 2021
+- **Top 100 Global** -- CTFtime (Team Cryptonite)
+- **Mentor** -- Research Society Manipal
+- **HR Head** -- Apple Developer's Group Manipal
 
 ---
 
 ## Let's Connect
 
-Open to collaborating on projects in **machine learning**, **cybersecurity**, and **automation**:
+Open to opportunities in **data science**, **machine learning engineering**, and **research**:
 
-- **Email**: [sameersaxena2810@gmail.com](mailto:sameersaxena2810@gmail.com)  
-- **LinkedIn**: [Profile](https://www.linkedin.com/in/sameer-saxena-3a80911a7/)  
+- **Email**: [saxena.same@northeastern.edu](mailto:saxena.same@northeastern.edu)
+- **LinkedIn**: [sameersaxena2810](https://www.linkedin.com/in/sameersaxena2810/)
 - **GitHub**: [Sampai28](https://github.com/Sampai28)
-
----
