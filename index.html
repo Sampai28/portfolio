@@ -129,6 +129,18 @@
             color: var(--primary);
         }
 
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.2rem;
+            line-height: 1;
+            padding: 0.5rem;
+            margin: -0.5rem;
+            cursor: pointer;
+        }
+
         /* Hero */
         .hero {
             min-height: 100vh;
@@ -537,7 +549,7 @@
         .projects-track {
             display: flex;
             width: max-content;
-            animation: marquee 60s linear infinite;
+            animation: marquee 100s linear infinite;
         }
 
         .projects-marquee:hover .projects-track {
@@ -547,6 +559,10 @@
         @keyframes marquee {
             from { transform: translateX(0); }
             to { transform: translateX(-50%); }
+        }
+
+        .hint-mobile {
+            display: none;
         }
 
         .marquee-hint {
@@ -563,6 +579,10 @@
 
             .projects-marquee {
                 overflow-x: auto;
+            }
+
+            .project-card[aria-hidden="true"] {
+                display: none;
             }
         }
 
@@ -914,8 +934,38 @@
         }
 
         @media (max-width: 768px) {
+            nav, nav.scrolled {
+                padding-left: 1.25rem;
+                padding-right: 1.25rem;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
             .nav-links {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                gap: 0;
+                padding: 0.25rem 1.25rem 1rem;
+                background: rgba(10, 15, 28, 0.97);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                border-bottom: 1px solid var(--card-border);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 0.8rem 0.25rem;
+                font-size: 1rem;
             }
 
             section {
@@ -929,6 +979,36 @@
             .timeline-item::before {
                 left: calc(-1.4rem - 7px);
             }
+
+            /* The marquee becomes a swipeable carousel — there is no hover to pause on touch */
+            .projects-marquee {
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                mask-image: none;
+                -webkit-mask-image: none;
+            }
+
+            .projects-track {
+                animation: none;
+            }
+
+            .project-card {
+                width: min(360px, calc(100vw - 3.5rem));
+                scroll-snap-align: center;
+            }
+
+            .project-card[aria-hidden="true"] {
+                display: none;
+            }
+
+            .hint-desktop {
+                display: none;
+            }
+
+            .hint-mobile {
+                display: inline;
+            }
         }
     </style>
 </head>
@@ -940,7 +1020,10 @@
     <nav id="navbar">
         <div class="nav-container">
             <div class="logo">SS</div>
-            <ul class="nav-links">
+            <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#skills">Skills</a></li>
@@ -1172,6 +1255,182 @@
                     <span class="tech-tag">FastAPI</span>
                     <span class="tech-tag">Terraform</span>
                     <span class="tech-tag">Google Cloud</span>
+                </div>
+            </div>
+
+            <!-- Toolsmith -->
+            <div class="project-card">
+                <div class="project-top">
+                    <div class="project-icon"><i class="fas fa-screwdriver-wrench"></i></div>
+                    <span class="featured-badge">LLM Systems</span>
+                </div>
+                <h3 class="project-title">Toolsmith</h3>
+                <p class="project-summary">An MCP server over survey-analytics data, plus a two-factor ablation harness that measures how tool descriptions and system prompts change an LLM&rsquo;s tool selection &mdash; with guardrails that get attacked by an adversarial bypass suite rather than asserted. Runs entirely locally on containerised Ollama.</p>
+                <div class="project-links">
+                    <a href="https://github.com/Sampai28/Toolsmith" target="_blank" rel="noopener" class="project-link">
+                        <i class="fab fa-github"></i> View on GitHub <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="project-tech">
+                    <span class="tech-tag">MCP</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">FastAPI</span>
+                    <span class="tech-tag">Ollama</span>
+                    <span class="tech-tag">Docker</span>
+                </div>
+            </div>
+
+            <!-- Beacon -->
+            <div class="project-card">
+                <div class="project-top">
+                    <div class="project-icon"><i class="fas fa-tower-broadcast"></i></div>
+                    <span class="featured-badge">Distributed Systems</span>
+                </div>
+                <h3 class="project-title">Beacon</h3>
+                <p class="project-summary">A horizontally-sharded real-time presence and session-join service in Go &mdash; three gateway replicas over Redis with a custom consistent hash ring that reassigns stale-session ownership when a node dies. Sustains 20,000 concurrent connections with every JOIN answered.</p>
+                <div class="project-links">
+                    <a href="https://github.com/Sampai28/Beacon" target="_blank" rel="noopener" class="project-link">
+                        <i class="fab fa-github"></i> View on GitHub <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="project-tech">
+                    <span class="tech-tag">Go</span>
+                    <span class="tech-tag">Redis</span>
+                    <span class="tech-tag">WebSockets</span>
+                    <span class="tech-tag">Consistent Hashing</span>
+                    <span class="tech-tag">Docker</span>
+                </div>
+            </div>
+
+            <!-- Tapewatch -->
+            <div class="project-card">
+                <div class="project-top">
+                    <div class="project-icon"><i class="fas fa-binoculars"></i></div>
+                    <span class="featured-badge">Market Surveillance</span>
+                </div>
+                <h3 class="project-title">Tapewatch</h3>
+                <p class="project-summary">Market abuse surveillance &mdash; a C++20 streaming engine detecting spoofing, layering, wash trading and momentum ignition, scored against synthetic order flow with injected ground truth, plus a React triage console with order book replay. Built around the hard case: legitimate market makers who look guilty.</p>
+                <div class="project-links">
+                    <a href="https://github.com/Sampai28/Tapewatch" target="_blank" rel="noopener" class="project-link">
+                        <i class="fab fa-github"></i> View on GitHub <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="project-tech">
+                    <span class="tech-tag">C++20</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">Streaming</span>
+                    <span class="tech-tag">Docker</span>
+                </div>
+            </div>
+
+            <!-- Matchbook -->
+            <div class="project-card">
+                <div class="project-top">
+                    <div class="project-icon"><i class="fas fa-arrow-right-arrow-left"></i></div>
+                    <span class="featured-badge">Low-Latency C++</span>
+                </div>
+                <h3 class="project-title">Matchbook</h3>
+                <p class="project-summary">A deterministic, single-threaded limit order book and matching engine in C++20 with price-time priority &mdash; implemented four times from a naive baseline to a cache-tuned version, all producing byte-identical event logs, plus a streaming market data gateway and a React terminal that renders the book live.</p>
+                <div class="project-links">
+                    <a href="https://github.com/Sampai28/Matchbook" target="_blank" rel="noopener" class="project-link">
+                        <i class="fab fa-github"></i> View on GitHub <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="project-tech">
+                    <span class="tech-tag">C++20</span>
+                    <span class="tech-tag">CMake</span>
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">WebSockets</span>
+                    <span class="tech-tag">Benchmarking</span>
+                </div>
+            </div>
+
+            <!-- Skein -->
+            <div class="project-card">
+                <div class="project-top">
+                    <div class="project-icon"><i class="fas fa-sitemap"></i></div>
+                    <span class="featured-badge">Agent Infrastructure</span>
+                </div>
+                <h3 class="project-title">Skein</h3>
+                <p class="project-summary">An asyncio runtime that executes agent workflows defined as directed acyclic graphs &mdash; maximal safe concurrency with bounded parallelism, real cancellation, timeouts that do not leak tasks, per-tool circuit breakers, and deterministic record and replay.</p>
+                <div class="project-links">
+                    <a href="https://github.com/Sampai28/Skein" target="_blank" rel="noopener" class="project-link">
+                        <i class="fab fa-github"></i> View on GitHub <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="project-tech">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">asyncio</span>
+                    <span class="tech-tag">OpenTelemetry</span>
+                    <span class="tech-tag">Docker</span>
+                    <span class="tech-tag">Kubernetes</span>
+                </div>
+            </div>
+
+            <!-- Strata -->
+            <div class="project-card">
+                <div class="project-top">
+                    <div class="project-icon"><i class="fas fa-layer-group"></i></div>
+                    <span class="featured-badge">Data Engineering</span>
+                </div>
+                <h3 class="project-title">Strata</h3>
+                <p class="project-summary">A local Hadoop, Hive and Spark stack used as a laboratory for measuring how physical data layout drives query performance &mdash; partition pruning, columnar formats and small-file effects, each experiment with a hypothesis, a controlled configuration and measured results.</p>
+                <div class="project-links">
+                    <a href="https://github.com/Sampai28/Strata" target="_blank" rel="noopener" class="project-link">
+                        <i class="fab fa-github"></i> View on GitHub <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="project-tech">
+                    <span class="tech-tag">Hadoop</span>
+                    <span class="tech-tag">Hive</span>
+                    <span class="tech-tag">Spark</span>
+                    <span class="tech-tag">PySpark</span>
+                    <span class="tech-tag">HDFS</span>
+                </div>
+            </div>
+
+            <!-- Arbiter -->
+            <div class="project-card">
+                <div class="project-top">
+                    <div class="project-icon"><i class="fas fa-scale-balanced"></i></div>
+                    <span class="featured-badge">Backend Systems</span>
+                </div>
+                <h3 class="project-title">Arbiter</h3>
+                <p class="project-summary">A payment card chargeback dispute lifecycle service in Java 21 and Spring Boot 3 &mdash; explicit state machine, idempotency keys, optimistic locking and a transactional outbox over PostgreSQL and Redpanda, so a retried call never files twice and every transition actually reaches settlement.</p>
+                <div class="project-links">
+                    <a href="https://github.com/Sampai28/Arbiter" target="_blank" rel="noopener" class="project-link">
+                        <i class="fab fa-github"></i> View on GitHub <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="project-tech">
+                    <span class="tech-tag">Java 21</span>
+                    <span class="tech-tag">Spring Boot 3</span>
+                    <span class="tech-tag">PostgreSQL</span>
+                    <span class="tech-tag">Redpanda</span>
+                    <span class="tech-tag">Docker</span>
+                </div>
+            </div>
+
+            <!-- Longlead -->
+            <div class="project-card">
+                <div class="project-top">
+                    <div class="project-icon"><i class="fas fa-hourglass-half"></i></div>
+                    <span class="featured-badge">Forecasting</span>
+                </div>
+                <h3 class="project-title">Longlead</h3>
+                <p class="project-summary">Probabilistic lead-time forecasting for long-lead nuclear procurement &mdash; quantile models with conformal prediction intervals, rolling-origin backtesting, and drift detection scored against injected ground truth rather than merely displayed.</p>
+                <div class="project-links">
+                    <a href="https://github.com/Sampai28/Longlead" target="_blank" rel="noopener" class="project-link">
+                        <i class="fab fa-github"></i> View on GitHub <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="project-tech">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">LightGBM</span>
+                    <span class="tech-tag">statsmodels</span>
+                    <span class="tech-tag">Conformal Prediction</span>
+                    <span class="tech-tag">Time Series</span>
                 </div>
             </div>
 
@@ -1410,7 +1669,7 @@
             </div>
         </div>
         </div>
-        <p class="marquee-hint"><i class="fas fa-hand-pointer"></i> Hover over a card to pause</p>
+        <p class="marquee-hint"><i class="fas fa-hand-pointer"></i> <span class="hint-desktop">Hover over a card to pause</span><span class="hint-mobile">Swipe to browse projects</span></p>
     </section>
 
     <!-- Achievements -->
@@ -1542,12 +1801,30 @@
 
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-        // Duplicate project cards so the marquee loops seamlessly
+        // Duplicate project cards so the marquee loops seamlessly. The clones are hidden
+        // by CSS wherever the track is a swipeable carousel instead of an animation, so
+        // rotating a phone past the breakpoint lands in a consistent state either way.
         const track = document.getElementById('projects-track');
         Array.from(track.children).forEach(card => {
             const clone = card.cloneNode(true);
             clone.setAttribute('aria-hidden', 'true');
             track.appendChild(clone);
+        });
+
+        // Mobile menu
+        const navToggle = document.getElementById('nav-toggle');
+        const navLinks = document.getElementById('nav-links');
+
+        function setMenu(open) {
+            navLinks.classList.toggle('open', open);
+            navToggle.setAttribute('aria-expanded', String(open));
+            navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+            navToggle.querySelector('i').className = open ? 'fas fa-xmark' : 'fas fa-bars';
+        }
+
+        navToggle.addEventListener('click', () => setMenu(!navLinks.classList.contains('open')));
+        navLinks.addEventListener('click', e => {
+            if (e.target.closest('a')) setMenu(false);
         });
 
     </script>
