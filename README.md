@@ -6,7 +6,7 @@
 
 ## About Me
 
-I'm pursuing a Master of Science in Data Science at Northeastern University, building on a Computer Science degree (Big Data minor) from Manipal Institute of Technology. My experience spans engineering data pipelines and dashboards at BackPac Technologies, automating security data workflows on Shell's Cyber Defence team, and publishing peer-reviewed ML research. Most recently, my team's MLOps project **TicketForge** took **Third Place Overall at the MLOps Expo**, hosted by Northeastern University's College of Engineering and Google Cloud.
+I'm pursuing a Master of Science in Data Science at Northeastern University, building on a Computer Science degree (Big Data minor) from Manipal Institute of Technology. My experience spans business automation and agent work at Scotiabank, data and security engineering on Databricks at Shell, pipelines and dashboards at BackPac Technologies, and publishing peer-reviewed ML research. Most recently, my team's MLOps project **TicketForge** took **Third Place Overall at the MLOps Expo**, hosted by Northeastern University's College of Engineering and Google Cloud.
 
 ---
 
@@ -87,11 +87,14 @@ Embedding-based comparison and knowledge retrieval pipeline using transformer mo
 
 ## Professional Experience
 
-- **Systems Engineer** @ *Shell — Cyber Defence* (Aug 2023 – Aug 2025)
-  Kept high-volume security log pipelines reliable (Azure AD and 5+ critical sources), built Splunk dashboards/alerts and a custom RBAC app, automated CrowdStrike reporting with Python + Azure DevOps, and redesigned ServiceNow workflows (30% backlog reduction).
+- **Business Automation Co-op** @ *Scotiabank* (Jul 2026 – Dec 2026)
+  Delivered the reporting layer of a centralized deal tombstone platform on Fabric and Power BI, a retrieval augmented generation agent in Copilot Studio over contract documents (retrieval from 7s to 0.9s, projected CAD 500,000 a year in vendor savings), a ServiceNow onboarding agent over MCP that onboarded 85 new joiners in its first two weeks, and automation for a monthly regulatory reporting process that replaced a 5–7 day Excel workflow.
 
-- **Data Science Intern** @ *BackPac Technologies* (Jan 2023 – Jul 2023)
-  Built Airflow data cleaning/preprocessing pipelines, shipped a Looker Studio dashboard for 1,000+ employees across 12+ departments, and ran statistical significance testing.
+- **Systems Engineer** @ *Shell — Finance, Data & Reporting, then Cyber Defence* (Aug 2023 – Aug 2025)
+  Automated a license renewal lifecycle for 200+ applications on Databricks, taking renewals from weeks to 2–3 days with adoption by the Legal, Cyber, IRM and Compliance teams. Consolidated SAP Ariba spend and ServiceNow Security Operations health into one Power BI dashboard covering 1,200+ applications, built Databricks Workflows reconciling 7 heterogeneous sources with DLT expectations, and ran Splunk and PySpark triage for data feed failures.
+
+- **Software Engineer Intern** @ *BackPac Technologies* (Jan 2023 – Jul 2023)
+  Migrated historical program data from hand-maintained spreadsheets into BigQuery and built the Looker Studio reporting layer, ran the daily load through Airflow with transformation logic in Snowflake SQL and Snowpark, and built a gender neutralization pipeline across 20+ internal documents.
 
 - **Undergraduate Research Assistant**, Manipal Institute of Technology (Aug 2021 – Dec 2022)
   Co-authored an IET Communications paper on dynamic friend grouping, validated with Silhouette, Davies-Bouldin, and Calinski-Harabasz on real-world datasets.
@@ -103,9 +106,12 @@ Embedding-based comparison and knowledge retrieval pipeline using transformer mo
 
 ## Technical Skills
 
-| Data Engineering | Cloud & MLOps | Languages | Analytics & ML | Security & Observability |
-|---|---|---|---|---|
-| Apache Airflow, PySpark, ETL/ELT, SQL, Data Modeling | Google Cloud, AWS Lambda, Azure DevOps, CI/CD, MLOps | Python, SQL, Bash, C++, JavaScript, TypeScript | TensorFlow, PyTorch, Scikit-learn, Power BI, Looker Studio, Hypothesis Testing | Splunk Cloud, Splunk SOAR, ServiceNow SIR/VR |
+- **Data Engineering** — Databricks, Microsoft Fabric, Apache Airflow, PySpark, Snowflake / Snowpark, BigQuery, Delta Lake & DLT, ETL/ELT, Data Modeling
+- **AI & Agents** — Copilot Studio, Retrieval Augmented Generation, MCP, LangChain, agent orchestration
+- **Cloud & MLOps** — Google Cloud, AWS Lambda, Azure DevOps, Docker, Kubernetes, Terraform, CI/CD, MLflow, DVC
+- **Languages** — Python, SQL, Go, Java, C++, Bash, TypeScript, JavaScript
+- **Analytics & ML** — TensorFlow, PyTorch, Scikit-learn, Power BI, Looker Studio, hypothesis testing
+- **Security & Observability** — Splunk Cloud, Splunk SOAR, ServiceNow SIR/VR, log pipeline ingestion
 
 ---
 

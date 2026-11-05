@@ -1045,7 +1045,7 @@
                     <p class="tagline">I build <strong>reliable data pipelines</strong>, <strong>cloud-native platforms</strong>, and <strong>production ML systems</strong> — turning raw data into decisions at scale.</p>
 
                     <div class="about-description">
-                        <p>I'm pursuing a Master of Science in Data Science at Northeastern University, building on a Computer Science degree (Big Data minor) from Manipal Institute of Technology. My experience spans engineering data pipelines and dashboards at BackPac Technologies, automating security data workflows on Shell's Cyber Defence team, and publishing peer-reviewed ML research.</p>
+                        <p>I'm pursuing a Master of Science in Data Science at Northeastern University, building on a Computer Science degree (Big Data minor) from Manipal Institute of Technology. My experience spans business automation and agent work at Scotiabank, data and security engineering on Databricks at Shell, pipelines and dashboards at BackPac Technologies, and publishing peer-reviewed ML research.</p>
                         <p>Most recently, my team's MLOps project <strong>TicketForge</strong> took Third Place Overall at the MLOps Expo hosted by Northeastern University and Google Cloud.</p>
                     </div>
 
@@ -1090,17 +1090,37 @@
             <div class="timeline-item">
                 <div class="timeline-content">
                     <div class="timeline-top">
+                        <div class="timeline-title">Business Automation Co-op</div>
+                        <div class="timeline-date">Jul 2026 – Dec 2026</div>
+                    </div>
+                    <div class="timeline-company">Scotiabank</div>
+                    <div class="timeline-details">
+                        <ul>
+                            <li>Delivered the reporting layer of a centralized deal tombstone platform, replacing a manual process that Marketing, Communications and Investor Relations each ran separately. Traced silent image truncation in Power BI Report Builder to a platform character limit and chunked the Base64 encoding across six columns in Fabric Lakehouse tables to work around it. Detected image type from each file's binary signature rather than its extension, which caught PNGs uploaded as .jpg.</li>
+                            <li>Built a retrieval augmented generation agent in Copilot Studio over contract documents, replacing manual vendor uploads and hand-compiled spreadsheet submissions. Grounded the agent on 20K source records expanded into 3M retrievable rows in a Fabric Lakehouse so answers cited the exact clause. Cut retrieval time from 7 seconds to 0.9 seconds and projected CAD 500,000 a year in vendor savings and 8 FTE hours a month.</li>
+                            <li>Built an AI agent in Copilot Studio that connects to ServiceNow through its MCP server to create onboarding tickets for new joiners from a chat conversation, replacing a manual intake form that analysts filled in by hand. The agent collects role, team and access needs in conversation and calls the ServiceNow tools directly, removing the transcription errors that came from rekeying the same details twice. Used to onboard 85 new joiners in the first two weeks after release.</li>
+                            <li>Automated a monthly regulatory reporting process, replacing a manual Excel workflow that consumed 5 to 7 business days every month. Mapped 110+ line items across the reporting annexes into Fabric SQL models surfaced through Power BI, targeting a 33% reduction in analyst effort and roughly 20 hours a month.</li>
+                            <li>Built a submission workflow on Fabric Data Factory pipelines with a four state lifecycle tracked in a Lakehouse table, fronted by a Copilot Studio agent that collected submissions in chat. Added failure branches that log the failing activity by name, validated against six tested scenarios covering both success and failure paths. Revised the business case's 17 hour annual savings estimate down to the 5 to 7 hours the delivered automation actually supports.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-top">
                         <div class="timeline-title">Systems Engineer</div>
                         <div class="timeline-date">Aug 2023 – Aug 2025</div>
                     </div>
-                    <div class="timeline-company">Shell — Cyber Defence</div>
+                    <div class="timeline-company">Shell — Finance, Data &amp; Reporting, then Cyber Defence</div>
                     <div class="timeline-details">
                         <ul>
-                            <li>Resolved ingestion issues across 5+ critical security log sources including Azure AD, keeping high-volume security data pipelines reliable for downstream detection.</li>
-                            <li>Built Splunk dashboards, alerts, and a custom RBAC app to secure vulnerability data and improve monitoring efficiency.</li>
-                            <li>Automated CrowdStrike reporting with Python and Azure DevOps pipelines, streamlining data access for 10+ teams.</li>
-                            <li>Developed a license renewal automation system for 200+ applications, saving 100 minutes per renewal per application.</li>
-                            <li>Redesigned ServiceNow workflows with intelligent SLA tracking, reducing incident backlog by 30%.</li>
+                            <li>Mapped a manual license renewal lifecycle run separately across four teams, then automated it for 200+ applications on Databricks covering renewal alerts, requirement checks, contract validity, vendor quotes and purchase order approval routing. Renewal time dropped from weeks to 2 to 3 days, and the Legal, Cyber, IRM and Compliance teams adopted it.</li>
+                            <li>Consolidated SAP Ariba cost data with ServiceNow Security Operations health data into a single Power BI dashboard served through Databricks SQL, surfacing application health and spend for more than 1,200 applications.</li>
+                            <li>Built and automated Databricks Workflows that validated and reconciled data across 7 heterogeneous sources, using DLT expectations on Delta tables to catch inconsistencies before they reached executive reports. Wrote the classification logic and evaluation metrics in SQL, establishing shared definitions that improved categorization consistency and cut manual triage workload.</li>
+                            <li>Analyzed large-scale log and telemetry data from Splunk in PySpark notebooks on Databricks to identify overlapping events, missing logs and timestamp inconsistencies, improving data reliability for operations teams.</li>
+                            <li>Handled triage for data feed failures in Splunk and PySpark notebooks on Databricks, debugging overlapping event definitions, missing logs and timezone settings that pushed timestamps into the future, then tracing each fault back to its source system and owning team.</li>
+                            <li>Built a Splunk Cloud application with role-based access control, defining custom roles and mapping permissions from ServiceNow user lists to restrict access to authorized search heads and indices.</li>
+                            <li>Added validation checks to ServiceNow incident workflows using reference filters, classification fields and catalog schema updates, backed by DLT expectations on the downstream Delta tables, reducing invalid and duplicate records in incident data.</li>
                             <li>Placed 7th in Boss of the SOC, Shell's Splunk tournament across India–Netherlands teams.</li>
                         </ul>
                     </div>
@@ -1109,16 +1129,17 @@
             <div class="timeline-item">
                 <div class="timeline-content">
                     <div class="timeline-top">
-                        <div class="timeline-title">Data Science Intern</div>
+                        <div class="timeline-title">Software Engineer Intern</div>
                         <div class="timeline-date">Jan 2023 – Jul 2023</div>
                     </div>
                     <div class="timeline-company">BackPac Technologies</div>
                     <div class="timeline-details">
                         <ul>
-                            <li>Built and orchestrated data cleaning and preprocessing pipelines with Apache Airflow.</li>
-                            <li>Developed a Looker Studio dashboard serving 1,000+ employees across 12+ departments.</li>
-                            <li>Performed statistical significance testing (p-values) to validate data-driven decisions.</li>
-                            <li>Authored detailed pipeline documentation for seamless team onboarding.</li>
+                            <li>Migrated historical program data from hand-maintained spreadsheets into BigQuery, standardizing column names, date formats and category labels during load. Built the reporting layer in Looker Studio so program leads could filter participation by cohort and program year.</li>
+                            <li>Built Airflow pipelines that ran the daily load and applied the transformation logic in Snowflake SQL and Snowpark. Added task retries and failure alerts so a broken upstream file stopped the run.</li>
+                            <li>Built a gender neutralization pipeline that scanned 20+ internal documents for gendered language and generated neutral rewrites. Processed the text in Snowpark Python and wrote both versions back to Snowflake for reviewer approval, replacing a manual document by document review.</li>
+                            <li>Ran significance testing in Snowpark Python with scipy.stats on the participation data. Confirmed one effect at p = 0.008 and ruled out another at p = 0.585 that had been reported internally as meaningful.</li>
+                            <li>Tested the Ionic framework mobile application across devices and reported defects against the Firebase backend, checking that events logged in the app matched the records landing in Snowflake.</li>
                         </ul>
                     </div>
                 </div>
@@ -1171,12 +1192,26 @@
             <div class="skill-row">
                 <h3><i class="fas fa-database"></i> Data Engineering</h3>
                 <div class="skill-tags">
+                    <span class="skill-tag">Databricks</span>
+                    <span class="skill-tag">Microsoft Fabric</span>
                     <span class="skill-tag">Apache Airflow</span>
                     <span class="skill-tag">PySpark</span>
+                    <span class="skill-tag">Snowflake / Snowpark</span>
+                    <span class="skill-tag">BigQuery</span>
+                    <span class="skill-tag">Delta Lake &amp; DLT</span>
                     <span class="skill-tag">ETL / ELT Pipelines</span>
-                    <span class="skill-tag">SQL</span>
                     <span class="skill-tag">Data Modeling</span>
                     <span class="skill-tag">Data Quality &amp; Validation</span>
+                </div>
+            </div>
+            <div class="skill-row">
+                <h3><i class="fas fa-robot"></i> AI &amp; Agents</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Copilot Studio</span>
+                    <span class="skill-tag">Retrieval Augmented Generation</span>
+                    <span class="skill-tag">MCP</span>
+                    <span class="skill-tag">LangChain</span>
+                    <span class="skill-tag">Agent Orchestration</span>
                 </div>
             </div>
             <div class="skill-row">
@@ -1185,6 +1220,8 @@
                     <span class="skill-tag">Google Cloud</span>
                     <span class="skill-tag">AWS Lambda</span>
                     <span class="skill-tag">Azure DevOps</span>
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">Kubernetes</span>
                     <span class="skill-tag">Terraform</span>
                     <span class="skill-tag">CI/CD</span>
                     <span class="skill-tag">MLflow</span>
@@ -1196,10 +1233,12 @@
                 <div class="skill-tags">
                     <span class="skill-tag">Python</span>
                     <span class="skill-tag">SQL</span>
-                    <span class="skill-tag">Bash</span>
+                    <span class="skill-tag">Go</span>
+                    <span class="skill-tag">Java</span>
                     <span class="skill-tag">C++</span>
-                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">Bash</span>
                     <span class="skill-tag">TypeScript</span>
+                    <span class="skill-tag">JavaScript</span>
                 </div>
             </div>
             <div class="skill-row">
